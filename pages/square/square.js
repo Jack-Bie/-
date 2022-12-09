@@ -1,37 +1,13 @@
-// pages/square/square.ts
+// pages/square/square.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    praised:false,
-    collected:false,
-    commented:false,
-    postList:[
-     {
-      photo: '/img/img/tx.jpg',
-      name: '张三',
-      major_tag: '英语专业',
-      time: '2022-11-11',
-      type:'问',
-      content:'这是一段内容这是一段内容这是一段内容这是一段内容这是一段内容这是一段内容这是一',
-      praisePost: 6,
-      collect:6,
-      comment:6
-     },
-     {
-      photo: '/img/img/tx.jpg',
-      name: '李华',
-      major_tag: '英语专业',
-      time: '2022-11-11',
-      type:'槽',
-      content:'是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容是一段内容',
-      praisePost: 6,
-      collect:7,
-      comment:8
-     }
-    ],
+    post:app.globalData.post,
+    id:0,
 },
 
   //前往搜索页
@@ -42,10 +18,13 @@ Page({
   },
 
   //前往他人主页
-  goToOthers(){
-    console.log("others");
+  goToOthers: function(e){
+    //console.log(e.target.id);
+    this.setData({id:e.target.id-1});
+    //console.log(this.data.id);
+    let id = this.data.id;
     wx.navigateTo({
-      url: '/pages/othersIndex/othersIndex',
+      url: `/pages/othersIndex/othersIndex?id=${id}`,
     })
   },
 
@@ -54,7 +33,6 @@ Page({
     wx.navigateTo({
       url: '/pages/chat/chat',
     })
-    console.log("comment");
     if(this.data.commented){
       this.setData({
         commented:false,
@@ -64,24 +42,48 @@ Page({
   },
 
   //点赞,收藏
-  praise(){
-    console.log("praise");
+  praise(e){
+    let id = e.currentTarget.id;
+    this.setData({id:id});
+    let praise = 'post['+(id-1)+'].praise';
+    //console.log(this.data.post[id-1].praise);
     if(this.data.praised){
+      let praiseNum = this.data.post[id-1].praise;
       this.setData({
         praised:false,
+        [praise]: praiseNum - 1,
       })
     }
-    else this.setData({praised:true});
+    else {
+      let praiseNum = this.data.post[id-1].praise;
+      this.setData({
+        praised:true,
+        [praise]:praiseNum + 1,
+      });
+    }
+    //console.log(this.data.post[id-1].praise);
   },
 
-  collect(){
-    console.log("collect");
+  collect(e){
+    let id = e.currentTarget.id;
+    this.setData({id:id});
+    let collect = 'post['+(id-1)+'].collect';
+    console.log(this.data.post[id-1].collect);
     if(this.data.collected){
+      let collectNum = this.data.post[id-1].collect;
       this.setData({
         collected:false,
+        [collect]: collectNum - 1,
       })
     }
-    else this.setData({collected:true});
+    else {
+      let collectNum = this.data.post[id-1].collect;
+      this.setData({
+        collected:true,
+        [collect]: collectNum + 1,
+      });
+    }
+    console.log(this.data.post[id-1].collect);
   },
 
   /**

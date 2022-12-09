@@ -1,24 +1,24 @@
 <!--pages/othersIndex/othersIndex.wxml-->
 <view class="title">
-  {{name}}的主页
+  {{post[0].name}}的主页
 </view>
 <view class="all-information">
-  <image src="/img/img/tx.jpg" mode="" class="avatar"/>
+  <image src="{{post[0].avatar}}" mode="" class="avatar"/>
   <view class="information">
     <view class="name-font">
-     {{name}}
+     {{post[0].name}}
     </view>
     <view>
-      {{major_tag}}
+      {{post[0].grade}}
     </view>
   </view>
 </view>
-<view class="all-posts" wx:for="{{postList}}" wx:key="id">
+<view class="all-posts" wx:for="{{post}}" wx:key="id">
   <view class="post">
     <view class="image-title">
-      <image src="{{item.photo}}" bindtap="goToOthers"></image>
+      <image src="{{item.avatar}}" bindtap="goToOthers"></image>
       <text class="post-name">{{item.name}}</text>
-      <text class="post-major">{{item.major_tag}}</text>
+      <text class="post-major">{{item.major}}</text>
       <text class="post-time">{{item.time}}</text>
     </view>
 
@@ -31,7 +31,7 @@
       <view bindtap="praise">
         <image src="../../img/png/组件名=点赞,active=是.png" wx:if="{{praised}}"></image>
         <image src="../../img/png/组件名=点赞,active=否.png" wx:if="{{!praised}}"></image>
-        <text>{{item.praisePost}}</text>
+        <text>{{item.praise}}</text>
       </view>
 
       <view bindtap="collect"> 

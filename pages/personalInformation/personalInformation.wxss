@@ -24,6 +24,7 @@ page{
   height: 200rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
+  margin-top: 40rpx;
 }
 
 .avatar{
@@ -35,8 +36,6 @@ page{
   display: block;
   flex-direction: column;
   justify-content: center;
-
-  
 }
 .tx{
   display: flex;
@@ -55,7 +54,8 @@ page{
   border-radius: 10rpx;
   height: 100rpx;
   margin-left: 20rpx;
-  margin-right: 20rpx
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
 }
 .zt{
   display: flex;

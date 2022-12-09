@@ -1,6 +1,6 @@
 /* pages/square/square.wxss */
 page{
-  background: -webkit-linear-gradient(top,rgb(255, 255, 255),#ffffff,rgb(230, 195, 235));
+  background: white;
 }
 
 .title {
@@ -64,6 +64,7 @@ page{
   border: 1rpx solid transparent;
   border-radius: 20rpx;
   margin-top: 20rpx;
+  margin-bottom: 20rpx;
   padding-top: 5rpx;
   box-shadow: 2rpx 2rpx 15rpx gray;
 }

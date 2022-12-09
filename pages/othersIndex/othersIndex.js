@@ -1,66 +1,28 @@
-// pages/othersIndex/othersIndex.js
+// pages/othersInd(ex/othersIndex.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    name: '张三',
-    major_tag: '英语专业',
-    postList:[
-      {
-        photo: '/img/img/tx.jpg',
-        name: '张三',
-        major_tag: '英语专业',
-        time: '2022-11-11',
-        type:'问',
-        content:'这是一段内容这是一段内容这是一段内容这是一段内容这是一段内容这是一段内容这是一',
-        praisePost: 6,
-        collect:6,
-        comment:6
-      },
-    ]
+    post:[],
+    id:1,
   },
 
-  //前往评论页,评论
-  goToComment(){
-    console.log("comment");
-    if(this.data.commented){
-      this.setData({
-        commented:false,
-      })
-    }
-    else this.setData({commented:true});
-  },
-
-  //点赞,收藏
-  praise(){
-    console.log("praise");
-    if(this.data.praised){
-      this.setData({
-        praised:false,
-      })
-    }
-    else this.setData({praised:true});
-  },
-
-  collect(){
-    console.log("collect");
-    if(this.data.collected){
-      this.setData({
-        collected:false,
-      })
-    }
-    else this.setData({collected:true});
-  },
 
  
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-
+  onLoad(option) {
+    //console.log(option);
+    //console.log(app.globalData.post[option.id])
+    this.setData({
+      id:option.id,
+      post:[app.globalData.post[option.id]],
+    });
+    //console.log(this.data.id);
   },
 
   /**
