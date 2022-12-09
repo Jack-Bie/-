@@ -1,0 +1,44 @@
+{
+  "pages": [ 
+    "pages/square/square",
+    "pages/post/post",
+    "pages/indexPage/indexPage",
+    "pages/personalInformation/personalInformation",
+    "pages/logHistory/logHistory",
+    "pages/post-ed/post-ed",
+    "pages/stars/stars",
+    "pages/comment/comment" ,
+    "pages/othersIndex/othersIndex",
+    "pages/search/search",
+    "pages/searchRes/searchRes",
+    "pages/chat/chat"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "专业交流平台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/square/square",
+      "text": "广场",
+      "iconPath": "./img/png/组件名=广场,active=否.png",
+      "selectedIconPath": "./img/png/组件名=广场,active=是.png"
+    },
+
+    {
+      "pagePath": "pages/post/post",
+      "text": "发布",
+      "iconPath": "./img/png/组件名=bianji.png",
+      "selectedIconPath": "./img/png/组件名=bianji.png"
+    },
+    {
+      "pagePath": "pages/indexPage/indexPage",
+      "text": "我的",
+      "iconPath": "./img/png/组件名=我的,active=否.png",
+      "selectedIconPath": "./img/png/组件名=我的,active=是.png"
+    }]},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

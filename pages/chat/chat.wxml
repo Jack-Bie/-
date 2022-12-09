@@ -1,0 +1,77 @@
+<view class="title">帖子详情</view>
+<!-- 整个页面的大盒子 -->
+<view class="all-posts">
+  <!-- post盒子 -->
+  <view class="post">
+    <view class="image-title">
+      <image src="{{avatar}}" bindtap="goToOthers"></image>
+      <text class="post-name">{{name}}</text>
+      <text class="post-major">{{major_tag}}</text>
+      <text class="post-time">{{time}}</text>
+    </view>
+
+    <view class="post-center">
+      <view class="post-class"><text>{{type}}</text></view>
+      <view class="post-content" bindtap="goToComment"><text user-select="true">{{content}}</text></view>
+    </view>
+
+    <view class="post-tabbar">
+      <view bindtap="praise">
+        <image src="../../img/png/组件名=点赞,active=是.png" wx:if="{{praised}}"></image>
+        <image src="../../img/png/组件名=点赞,active=否.png" wx:if="{{!praised}}"></image>
+        <text>{{praise}}</text>
+      </view>
+
+      <view bindtap="collect"> 
+        <image src="../../img/png/组件名=收藏,active=是.png" wx:if="{{collected}}"></image>
+        <image src="../../img/png/组件名=收藏,active=否.png" wx:if="{{!collected}}"></image>
+        <text>{{collect}}</text>
+      </view>
+
+      <view>
+        <image src="../../img/png/组件名=评论,active=是.png" wx:if="{{commented}}"></image>
+        <image src="../../img/png/组件名=评论,active=否.png" wx:if="{{!commented}}"></image>
+        <text>{{comment}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 评论按钮 -->
+  <view id="comment-box">
+    <view class="image-title">
+      <image src="{{avatar}}" bindtap="goToOthers"></image>
+    </view>
+
+      <view class="comment-text"><input type="text" bindinput="bindKeyInput" focus="{{isShowKeyboard}}" confirm-type="search" bindconfirm="comment" placeholder="评论千万条,友善第一条"></input></view>
+
+      <view class="button" bindtap="comment">评 论</view>
+  </view>
+
+  <!-- 所有评论内容 -->
+  <view class="comment-info">
+    <view class="comment-msg">
+      <view class="image-title">
+        <image src="/img/img/tx.jpg" bindtap="goToOthers"></image>
+      </view>
+      <view>{{name}}</view>
+      <view>{{major_tag}}</view>
+      <view>{{time}}</view>
+    </view>
+
+    <view class="comment-content">
+      <text user-select="true">{{commentContent}}</text>
+      <view class="comment-tabbar">
+        <view bindtap="praise">
+        <image src="../../img/png/组件名=点赞,active=是.png" wx:if="{{praised}}"></image>
+        <image src="../../img/png/组件名=点赞,active=否.png" wx:if="{{!praised}}"></image>
+      </view>
+      
+      <view>
+        <image src="../../img/png/组件名=评论,active=是.png" wx:if="{{commented}}"></image>
+        <image src="../../img/png/组件名=评论,active=否.png" wx:if="{{!commented}}"></image>
+      </view>
+      </view>
+    </view>
+  </view>
+    
+</view>

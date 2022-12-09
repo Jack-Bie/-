@@ -1,0 +1,164 @@
+/* pages/post-ed/post-ed.wxss */
+/* pages/square/square.wxss */
+page{
+  background: -webkit-linear-gradient(top,rgb(255, 255, 255),#ffffff,rgb(230, 195, 235));
+}
+
+.title {
+  width: 97%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(231, 213, 236,0.5);
+  padding: 15rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}
+
+.search_image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.tab {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.tab_ {
+  border: 4rpx solid;
+  border-color: transparent;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  background-color: #e7d5ec;
+}
+
+.tab_image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.all-posts{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.post{
+  width: 90%;
+  height: 360rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(245 226 239);
+  box-sizing: border-box;
+  border: 1rpx solid transparent;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
+  padding-top: 5rpx;
+  box-shadow: 2rpx 2rpx 15rpx gray;
+  margin-left: 40rpx;
+}
+
+.image-title{
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.image-title image{
+  border: 1rpx solid transparent;
+  border-radius: 50%;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.post-name{
+  font-size: 36rpx;
+  color: rgba(0,0,0,0.8);
+}
+
+.post-major{
+  font-size: 32rpx;
+  color: rgba(0,0,0,0.6);
+  font-weight: bold;
+}
+
+.post-time{
+  font-size: 32rpx;
+  color: gray;
+}
+
+.post-center{
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding-left: 20rpx;
+}
+
+.post-class{
+  width: 100rpx;
+  height: 100rpx;
+  border: 1rpx solid transparent;
+  border-radius: 50%;
+  background-color: rgb(218 196 220);
+  font-size: 48rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+.post-content{
+  width: 80%;
+  height: 160rpx;
+  overflow-y: scroll;
+  background-color: #e7d5ec;
+  padding: 15rpx;
+  font-size: 30rpx;
+  color: rgba(0,0,0,0.8);
+  border: 1rpx solid transparent;
+  border-radius: 20rpx 0 0 0;
+}
+
+.post-tabbar{
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1rpx solid transparent;
+  border-radius: 0,0,20rpx,20rpx;
+  background-color: rgb(245 226 239);
+  
+}
+
+.post-tabbar image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.post-tabbar view{
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

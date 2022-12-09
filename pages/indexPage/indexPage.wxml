@@ -1,0 +1,38 @@
+<!--pages/indexPage/indexPage.wxml-->
+
+<view class="personalInformation" bindtap="next_calculator">
+  <image src="{{avatar}}" mode="" class="avatar" />
+  <view class="text">
+    <text class="name">{{name}}\n</text>
+    <text class="change">编辑个人资料</text>
+  </view>
+</view>
+
+<view class="box" bindtap="log_tap">
+  <image src="/img/png/组件名=浏览记录,active=是.png" mode="" class="avatar" />
+ <view class="box_text">
+  浏览记录 
+ </view> 
+</view>
+
+<view class="box" bindtap="post_tap">
+  <image src="/img/png/组件名=bianji.png" mode="" class="avatar" />
+ <view class="box_text" >
+  已发布
+ </view> 
+</view>
+
+<view class="box"   bindtap="stars_tap">
+  <image src="/img/png/收藏.png" mode="" class="avatar"/>
+ <view class="box_text">
+  已收藏
+ </view> 
+</view>
+
+<view class="box" bindtap="comment_tap">
+  <image src="/img/png/组件名=评论,active=是.png" mode="" class="avatar" />
+ <view class="box_text">
+ 已评论
+ </view> 
+</view>
+

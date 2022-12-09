@@ -1,0 +1,15 @@
+/* pages/logHistory/logHistory.wxss */
+page{
+  background: -webkit-linear-gradient(top,rgb(255, 255, 255),#ffffff,rgb(230, 195, 235));
+}
+
+.title {
+  width: 97%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(231, 213, 236,0.5);
+  padding: 15rpx;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+}

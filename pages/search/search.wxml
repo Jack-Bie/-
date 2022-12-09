@@ -1,0 +1,22 @@
+<view class="container">
+  <view id="search-box">
+    <view class="img">
+      <image src="../../img/png/组件名=搜索,active=是.png" mode="aspectFill"></image>
+    </view>
+    <view id="search-text">
+      <view><input type="text" bindinput="bindKeyInput" focus="{{isShowKeyboard}}" confirm-type="search" bindconfirm="searchRes" placeholder="输入关键词搜索内容"></input></view>
+    </view>
+    <view class="button" bindtap="searchRes">搜索</view>
+  </view>
+  <view class="search-history">
+    <view class="history">
+      <view class="search-text">搜索历史:</view>
+      <view class="button" wx:for="{{history}}" wx:key="index1">{{item}}</view>
+    </view>
+    <view class="history">
+      <view class="search-text">最近热搜:</view>
+      <view class="button" wx:for="{{hotSearch}}" wx:key="index2">{{item}}</view>
+    </view>
+  </view>
+
+</view>

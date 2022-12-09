@@ -1,0 +1,55 @@
+<view class="title" bindtap="goToSearch">
+  <image src="/img/png/组件名=搜索,active=是.png" class="search_image"></image>搜索
+</view>
+
+<view class="tab">
+  <view class="tab_">
+    <image src="/img/png/组件名=全部,active=否.png" alt="" class="search_image" />
+    <view>全 部</view>
+  </view>
+  <view class="tab_">
+    <image src="/img/png/组件名=吐槽,active=否.png" alt="" class="search_image" />
+    <view>吐 槽</view>
+  </view>
+  <view class="tab_">
+    <image src="/img/png/组件名=评论,active=否.png" alt="" class="search_image" />
+    <view>咨 询</view>
+  </view>
+</view>
+
+<!-- post组件 -->
+<view class="all-posts" wx:for="{{postList}}" wx:key="id">
+  <view class="post">
+    <view class="image-title">
+      <image src="{{item.photo}}" bindtap="goToOthers"></image>
+      <text class="post-name">{{item.name}}</text>
+      <text class="post-major">{{item.major_tag}}</text>
+      <text class="post-time">{{item.time}}</text>
+    </view>
+
+    <view class="post-center">
+      <view class="post-class"><text>{{item.type}}</text></view>
+      <view class="post-content" bindtap="goToComment"><text user-select="true">{{item.content}}</text></view>
+    </view>
+
+    <view class="post-tabbar">
+      <view bindtap="praise">
+        <image src="../../img/png/组件名=点赞,active=是.png" wx:if="{{praised}}"></image>
+        <image src="../../img/png/组件名=点赞,active=否.png" wx:if="{{!praised}}"></image>
+        <text>{{item.praisePost}}</text>
+      </view>
+
+      <view bindtap="collect"> 
+        <image src="../../img/png/组件名=收藏,active=是.png" wx:if="{{collected}}"></image>
+        <image src="../../img/png/组件名=收藏,active=否.png" wx:if="{{!collected}}"></image>
+        <text>{{item.collect}}</text>
+      </view>
+
+      <view bindtap="goToComment">
+        <image src="../../img/png/组件名=评论,active=是.png" wx:if="{{commented}}"></image>
+        <image src="../../img/png/组件名=评论,active=否.png" wx:if="{{!commented}}"></image>
+        <text>{{item.comment}}</text>
+      </view>
+    </view>
+  </view>
+</view>

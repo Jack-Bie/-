@@ -1,0 +1,4 @@
+<!--pages/logHistory/logHistory.wxml-->
+<view class="title">
+  浏览记录
+</view>
