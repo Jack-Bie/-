@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    user:{},
     post:app.globalData.post,
     id:0,
     praised: false,
@@ -96,8 +97,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-
+  onLoad(options) {
+    //这个地方错了好多次,注意注意!!!
+    //console.log(JSON.parse(options.user));
+    this.setData({
+      user:JSON.parse(options.user),
+      ['user.praise']:0,
+      ['user.collect']:0,
+      ['user.comment']:0,
+      ['user.id']:1,
+    });
+    //console.log(this.data.user);
   },
 
   /**

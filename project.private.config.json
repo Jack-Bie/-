@@ -8,13 +8,6 @@
     "miniprogram": {
       "list": [
         {
-          "name": "chat",
-          "pathName": "pages/chat/chat",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
           "name": "",
           "pathName": "pages/personalInformation/personalInformation",
           "query": "",

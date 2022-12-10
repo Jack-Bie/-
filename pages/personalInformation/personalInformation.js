@@ -7,13 +7,13 @@ Page({
   data: {
     name:'李华',
     avatar:'/img/img/tx.jpg',
-    request:'请选择>>',
+    major_label:"请选择>>",
+    grade_label:"请选择>>",
     showModalStatus:'',
     animationData:'',
     grades:["本科一年级","本科二年级","本科三年级","本科四年级","研究生一年级","研究生二年级","研究生三年级"],
-    faculty_major:[["国家网络安全学院","资源与环境学院","基础医学院"],
-    ["信息安全","网络安全","密码学","解剖学"],["离谱"]//这里是什么情况我一脸蒙
-  ]
+    faculty_major:["国家网络安全学院","资源与环境学院","基础医学院","信息安全","网络安全","密码学","解剖学","离谱"]//这里是什么情况我一脸蒙
+  
   },
 
    //滑动选择器
@@ -21,6 +21,19 @@ Page({
      this.setData({
 
      })
+   },
+
+   chooseGrade(e){
+     //console.log(e);
+     this.setData({
+       grade_label:this.data.grades[e.detail.value],
+     })
+   },
+
+   chooseMajor(e){
+    this.setData({
+      major_label:this.data.faculty_major[e.detail.value],
+    })
    },
 
   /**

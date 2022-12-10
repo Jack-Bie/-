@@ -1,7 +1,37 @@
-
+const app = getApp();
 Page({
   data: {
-      imgs: []
+      imgs: [],
+      user:app.globalData.user,
+      majors:["专业1","专业2","专业3","专业4","专业5","专业6","专业7"],
+      types:["问","槽"],
+      major_label:"请选择>>",
+      type_label:"请选择>>",
+  },
+
+
+  bindKeyInput: function (e) {
+    this.setData({
+      ['user.content']: e.detail.value,
+    })
+  },
+
+  majorsSelect(e){
+    //console.log(e);
+    this.setData({
+      ['user.major']:this.data.majors[e.detail.value],
+      major_label:this.data.majors[e.detail.value],
+    })
+    //console.log(this.data.user);
+  },
+
+  typesSelect(e){
+    //console.log(e);
+    this.setData({
+      ['user.type']:this.data.types[e.detail.value],
+      type_label:this.data.types[e.detail.value],
+    })
+    //console.log(this.data.user);
   },
 
   onLoad: function (options) {
@@ -58,6 +88,15 @@ Page({
       this.setData({
           imgs
       })
-  }
+  },
 
+  send(){
+    wx.setStorage({
+      data:this.data.user,
+      key:"user",
+    });
+    wx.reLaunch({
+      url: '../square/square?user='+JSON.stringify(this.data.user),
+    })
+  }
 })

@@ -17,6 +17,43 @@
   </view>
 </view>
 
+<!-- user专用 -->
+<view class="all-posts" wx:if="{{user.id}}">
+  <view class="post">
+    <view class="image-title">
+      <image src="{{user.avatar}}"></image>
+      <text class="post-name">{{user.name}}</text>
+      <text class="post-major">{{user.major}}</text>
+      <text class="post-time">{{user.time}}</text>
+    </view>
+
+    <view class="post-center">
+      <view class="post-class"><text>{{user.type}}</text></view>
+      <view class="post-content" bindtap="goToComment"><text user-select="true">{{user.content}}</text></view>
+    </view>
+
+    <view class="post-tabbar">
+      <view bindtap="praise">
+        <image src="../../img/png/组件名=点赞,active=是.png" wx:if="{{praised}}"></image>
+        <image src="../../img/png/组件名=点赞,active=否.png" wx:else></image>
+        <text>{{user.praise}}</text>
+      </view>
+
+      <view bindtap="collect"> 
+        <image src="../../img/png/组件名=收藏,active=是.png" wx:if="{{collected}}"></image>
+        <image src="../../img/png/组件名=收藏,active=否.png" wx:else></image>
+        <text>{{user.collect}}</text>
+      </view>
+
+      <view bindtap="goToComment">
+        <image src="../../img/png/组件名=评论,active=是.png" wx:if="{{commented}}"></image>
+        <image src="../../img/png/组件名=评论,active=否.png" wx:else></image>
+        <text>{{user.comment}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
 <!-- post组件 -->
 <view class="all-posts" wx:for="{{post}}" wx:key="id">
   <view class="post">

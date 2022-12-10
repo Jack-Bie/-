@@ -1,37 +1,39 @@
 <view class='page'>
-  <textarea class='text' bindinput="input" placeholder="分享动态" auto-height/>
-  <view class="image_content">
+  <view class="post-box">
+    <view class="text"><textarea type="text" bindinput="bindKeyInput" auto-focus="true" confirm-type="return" placeholder="分享动态"></textarea></view>
+  <!-- <view class="image_content">
     <view class='image' wx:for="{{img_url}}">
       <image class="moment_img" src="{{item}}"></image>
     </view>
     <view class='image' style='display:{{hideAdd?"none":"block"}}'>
       <image bindtap="chooseimage" class="moment_img" src='../../images/add.jpg'></image>
     </view>
-  </view>
-  <view class="img-box">
-    <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
-        <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
-        <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">删除</view>
+  </view> -->
+    <view class="img-box">
+      <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+          <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
+          <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">删除</view>
+      </view>
+      <view class="upload-img-btn" bindtap="chooseImg" wx:if="{{imgs.length<9}}">+</view>
     </view>
-    <view class="upload-img-btn" bindtap="chooseImg" wx:if="{{imgs.length<9}}">+</view>
-</view>
+  </view>
 <view class="choose-box">
     <view class="zt">
     专业标签
       </view>
-    <picker class="zt" range="{{}}">
-      请选择>>
+    <picker class="zt" bindchange="majorsSelect" range="{{majors}}">
+      {{major_label}}
     </picker>
   </view>
   <view class="choose-box">
     <view class="zt">
     发布类型
       </view>
-    <picker class="zt" range="{{}}">
-      请选择>>
+    <picker class="zt" bindchange="typesSelect" range="{{types}}">
+      {{type_label}}
     </picker>
   </view>
-  <button bindtap="send"style="margin-top:40rpx; border-radius: 50rpx">发 表</button>
+  <button bindtap="send" style="margin-top:40rpx; border-radius: 50rpx">发 表</button>
 </view>
 
 

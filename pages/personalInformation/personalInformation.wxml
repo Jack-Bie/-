@@ -21,16 +21,16 @@
   <view class="zt">
       年级
   </view>
-  <picker class="zt" range="{{grades}}" bindchange="changeMe">
-    {{request}}
+  <picker class="zt" bindchange="chooseGrade" range="{{grades}}">
+    {{grade_label}}
   </picker>
   </view>
   <view class="choose-box">
     <view class="zt">
       学院-专业 
       </view>
-    <picker class="zt" range="{{faculty_major}}">
-      {{request}}
+    <picker class="zt" bindchange="chooseMajor" range="{{faculty_major}}">
+      {{major_label}}
     </picker>
   </view>
 </view>
