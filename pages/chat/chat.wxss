@@ -168,6 +168,10 @@
   box-shadow: 6rpx 6rpx 10rpx gray;
 }
 
+.button:active{
+  background-color: rgba(231, 213, 236,0.8);
+}
+
 /* 评论内容样式 */
 .comment-info{
   display: flex;

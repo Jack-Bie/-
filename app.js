@@ -26,6 +26,7 @@ App({
       praise:6,
       collect:6,
       comment:3,
+      commented:false,
     },
     {
       id : 2,
@@ -39,6 +40,7 @@ App({
       praise:5,
       collect:6,
       comment:1,
+      commented:false,
     },
     {
       id : 3,
@@ -52,6 +54,7 @@ App({
       praise:4,
       collect:8,
       comment:2,
+      commented:false,
     },
     {
       id : 4,
@@ -65,6 +68,7 @@ App({
       praise:3,
       collect:2,
       comment:4,
+      commented:false,
     },
     {
       id : 5,
@@ -78,7 +82,31 @@ App({
       praise:10,
       collect:6,
       comment:3,
+      commented:false,
     },
     ],
+    chatComment:[{
+      avatar:"../../img/img/contact.png",
+      name: "路人甲",
+      major: "物理专业",
+      time : "2022-12-01",
+      content:"感谢分享,说的真好!",
+    },
+    {
+      avatar:"../../img/img/contact-filling.png",
+      name: "路人乙",
+      major: "数学专业",
+      time : "2022-12-11",
+      content:"好无聊好无聊好无聊好无聊好无聊好无聊",
+    },
+  ],
+  user:{
+    avatar:"../../img/img/tx.jpg",
+    name: "我是用户",
+    major: "小程序专业",
+    grade: "本科二年级",
+    time : "2022-10-10",
+    content:"我是小程序用户我是小程序用户我是小程序用户我是小程序用户",
+  }
   }
 })

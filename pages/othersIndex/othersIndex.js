@@ -6,8 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    post:[],
-    id:1,
+    id:0,
+    post:{},
+    praised: false,
+    collected: false,
+    commented: false,
   },
 
 
@@ -15,14 +18,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(option) {
-    //console.log(option);
-    //console.log(app.globalData.post[option.id])
+  onLoad(options) {
+    //console.log(options);
     this.setData({
-      id:option.id,
-      post:[app.globalData.post[option.id]],
+      id:options.id - 1,
+      praised:JSON.parse(options.praised),
+      collected:JSON.parse(options.collected),
+      post:JSON.parse(options.post),
     });
-    //console.log(this.data.id);
   },
 
   /**

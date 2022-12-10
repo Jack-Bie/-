@@ -8,6 +8,9 @@ Page({
   data: {
     post:app.globalData.post,
     id:0,
+    praised: false,
+    collected: false,
+    commented: false,
 },
 
   //前往搜索页
@@ -20,25 +23,21 @@ Page({
   //前往他人主页
   goToOthers: function(e){
     //console.log(e.target.id);
-    this.setData({id:e.target.id-1});
+    this.setData({id:e.currentTarget.id-1});
     //console.log(this.data.id);
-    let id = this.data.id;
+    let id = e.currentTarget.id;
     wx.navigateTo({
-      url: `/pages/othersIndex/othersIndex?id=${id}`,
+      url: `/pages/othersIndex/othersIndex?id=${id}&&praised=${this.data.praised}&&collected=${this.data.collected}&&post=${JSON.stringify(this.data.post[id-1])}`,
     })
   },
 
   //前往评论页,评论
-  goToComment(){
+  goToComment(e){
+    let id = e.currentTarget.id;
+    //console.log(e);
     wx.navigateTo({
-      url: '/pages/chat/chat',
+      url: `/pages/chat/chat?id=${id}&&praised=${this.data.praised}&&collected=${this.data.collected}&&post=${JSON.stringify(this.data.post[id-1])}`,
     })
-    if(this.data.commented){
-      this.setData({
-        commented:false,
-      })
-    }
-    else this.setData({commented:true});
   },
 
   //点赞,收藏
@@ -47,12 +46,14 @@ Page({
     this.setData({id:id});
     let praise = 'post['+(id-1)+'].praise';
     //console.log(this.data.post[id-1].praise);
+    //console.log(app.globalData.post[id-1].praise);
     if(this.data.praised){
       let praiseNum = this.data.post[id-1].praise;
       this.setData({
         praised:false,
         [praise]: praiseNum - 1,
       })
+      app.globalData.post[id-1].praised = praiseNum - 1;
     }
     else {
       let praiseNum = this.data.post[id-1].praise;
@@ -60,21 +61,25 @@ Page({
         praised:true,
         [praise]:praiseNum + 1,
       });
+      app.globalData.post[id-1].praised = praiseNum + 1;
     }
     //console.log(this.data.post[id-1].praise);
+    //console.log(app.globalData.post[id-1].praised);
   },
 
   collect(e){
     let id = e.currentTarget.id;
     this.setData({id:id});
     let collect = 'post['+(id-1)+'].collect';
-    console.log(this.data.post[id-1].collect);
+    //console.log(this.data.post[id-1].collect);
+    //console.log(app.globalData.post[id-1].collect);
     if(this.data.collected){
       let collectNum = this.data.post[id-1].collect;
       this.setData({
         collected:false,
         [collect]: collectNum - 1,
       })
+      app.globalData.post[id-1].collect = collectNum - 1;
     }
     else {
       let collectNum = this.data.post[id-1].collect;
@@ -82,8 +87,10 @@ Page({
         collected:true,
         [collect]: collectNum + 1,
       });
+      app.globalData.post[id-1].collect = collectNum + 1;
     }
-    console.log(this.data.post[id-1].collect);
+    //console.log(this.data.post[id-1].collect);
+    //console.log(app.globalData.post[id-1].collect);
   },
 
   /**

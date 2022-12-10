@@ -1,49 +1,49 @@
 <!--pages/othersIndex/othersIndex.wxml-->
 <view class="title">
-  {{post[0].name}}的主页
+  {{post.name}}的主页
 </view>
 <view class="all-information">
-  <image src="{{post[0].avatar}}" mode="" class="avatar"/>
+  <image src="{{post.avatar}}" mode="" class="avatar"/>
   <view class="information">
     <view class="name-font">
-     {{post[0].name}}
+     {{post.name}}
     </view>
     <view>
-      {{post[0].grade}}
+      {{post.grade}}
     </view>
   </view>
 </view>
-<view class="all-posts" wx:for="{{post}}" wx:key="id">
+<view class="all-posts">
   <view class="post">
     <view class="image-title">
-      <image src="{{item.avatar}}" bindtap="goToOthers"></image>
-      <text class="post-name">{{item.name}}</text>
-      <text class="post-major">{{item.major}}</text>
-      <text class="post-time">{{item.time}}</text>
+      <image src="{{post.avatar}}"></image>
+      <text class="post-name">{{post.name}}</text>
+      <text class="post-major">{{post.major}}</text>
+      <text class="post-time">{{post.time}}</text>
     </view>
 
     <view class="post-center">
-      <view class="post-class"><text>{{item.type}}</text></view>
-      <view class="post-content" bindtap="goToComment"><text user-select="true">{{item.content}}</text></view>
+      <view class="post-class"><text>{{post.type}}</text></view>
+      <view class="post-content" ><text user-select="true">{{post.content}}</text></view>
     </view>
 
     <view class="post-tabbar">
-      <view bindtap="praise">
+      <view>
         <image src="../../img/png/组件名=点赞,active=是.png" wx:if="{{praised}}"></image>
-        <image src="../../img/png/组件名=点赞,active=否.png" wx:if="{{!praised}}"></image>
-        <text>{{item.praise}}</text>
+        <image src="../../img/png/组件名=点赞,active=否.png" wx:else></image>
+        <text>{{post.praise}}</text>
       </view>
 
-      <view bindtap="collect"> 
+      <view> 
         <image src="../../img/png/组件名=收藏,active=是.png" wx:if="{{collected}}"></image>
-        <image src="../../img/png/组件名=收藏,active=否.png" wx:if="{{!collected}}"></image>
-        <text>{{item.collect}}</text>
+        <image src="../../img/png/组件名=收藏,active=否.png" wx:else></image>
+        <text>{{post.collect}}</text>
       </view>
 
-      <view bindtap="goToComment">
+      <view>
         <image src="../../img/png/组件名=评论,active=是.png" wx:if="{{commented}}"></image>
-        <image src="../../img/png/组件名=评论,active=否.png" wx:if="{{!commented}}"></image>
-        <text>{{item.comment}}</text>
+        <image src="../../img/png/组件名=评论,active=否.png" wx:else></image>
+        <text>{{post.comment}}</text>
       </view>
     </view>
   </view>

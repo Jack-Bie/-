@@ -1,33 +1,51 @@
 // pages/chat/chat.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    avatar:"/img/img/avatar.jpg",
-    name:"李华",
-    major_tag:"外语专业",
-    time:"2022-11-11",
-    content:"这是一段内容",
-    type:"问",
-    praise:3,
-    collect:2,
-    comment:1,
     isShowKeyboard:false,
     commentContent:"感谢分享",
+    id:0,
+    post:{},
+    praised: false,
+    collected: false,
+    commented: false,
+    chatComment:app.globalData.chatComment,
+    user:app.globalData.user,
   },
 
 
   comment(){
+    wx.showLoading({
+      title: '数据加载中...',
+    })
     wx.hideKeyboard();
     this.setData({isShowKeyboard:false});
+    let chatComent = [];
+    let id =  this.data.id;
+    chatComent.push(this.data.user);
+    for (let item in this.data.chatComment){
+      chatComent.push(this.data.chatComment[item]);
+    };
+    this.setData({
+      chatComment:chatComent,
+      commented: true,
+      ['post.comment']:this.data.post.comment + 1,
+    })
+    //console.log(this.data.chatComment);
+    app.globalData.chatComent = this.data.chatComent;
+    app.globalData.post[id].commented = true;
+    app.globalData.post[id].comment = app.globalData.post[id].comment + 1;
+    wx.hideLoading();
   },
 
   bindKeyInput: function (e) {
     this.setData({
       isShowKeyboard: true,
-      inputValue: e.detail.value
+      ['user.content']: e.detail.value
     })
   },
 
@@ -35,7 +53,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      id:options.id - 1,
+      praised:JSON.parse(options.praised),
+      collected:JSON.parse(options.collected),
+      post:JSON.parse(options.post),
+    });
   },
 
   /**
